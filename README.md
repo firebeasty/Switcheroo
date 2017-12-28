@@ -9,4 +9,4 @@ This Blender add-on allows you to quickly switch between portrait and landscape 
 <p>To install, simply download the python file. With the Blender User Preferences open, navigate to the Add-Ons Tab, and select the 'Install Add-On From File' option at the bottom. Select the python script from your download location. Once installed, you'll find a new panel in the Render Settings tab of the 'Properties' window called 'Switcheroo'. Grabbing the dots in the top right corner of the panel, reorder it in the stack how ever you wish! I recommend up above the 'Dimensions' panel for quick access. </p>
 
 <h2>Acknowledgements</h2>
-<p>This was my first add-on and Python script I've ever really come up with. I want to thank my good pal CSSmitty for helping with some skeleton building and refactoring.</p>
+<p>This was my first add-on and Python script I've ever really come up with. I want to thank my good pal <a href="https://github.com/CSSmitty/">CSSmitty</a> for helping with some skeleton building and refactoring.</p>
