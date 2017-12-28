@@ -5,11 +5,8 @@ bl_info = {
 }
 
 import bpy
-import mathutils
 
 
-
-# Class
 class Switcheroo(bpy.types.Panel):
     bl_label = "Switcheroo"
     bl_id = "view3D.custom_menu"
@@ -20,47 +17,33 @@ class Switcheroo(bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
-        split = layout.split()
+        split = layout.split
 
-        # Layout for addon
+        #Layout
         row = layout.row()
-        row.label("Swap Portrait and Landscape")
-        row = layout.row()
-        row.operator("switcheroo.switch")
+        row.operator('switcheroo.switch', icon='FORCE_VORTEX')
 
 
-class OBJECT_OT_BUTTON(bpy.types.Operator):
+class OBJECT_BUTTON(bpy.types.Operator):
     bl_idname = "switcheroo.switch"
-    bl_label = "Switcheroo!"
-    #bl_options = {'REGISTER', 'UNDO'}
+    bl_label = "Switch X/Y"
+
 
     def execute(self, context):
-        # x = render.resolution_x
-        # y = render.resolution_y
-        storage
-        switcher
-        # render.resolution_x = y
-        # render.rsolution_y = x
-        return{storage}
-
-
-def storage():
-    m = render.resolution_x
-    n = render.resolution_y
-
-
-def switcher():
-    x = n
-    y = m
+        x = bpy.context.scene.render.resolution_x
+        y = bpy.context.scene.render.resolution_y
+        bpy.context.scene.render.resolution_x = y
+        bpy.context.scene.render.resolution_y = x
+        return {'FINISHED'}
 
 
 def register():
     bpy.utils.register_class(Switcheroo)
-
+    bpy.utils.register_class(OBJECT_BUTTON)
 
 def unregister():
     bpy.utils.unregister_class(Switcheroo)
-
+    bpy.utils.unregister_class(OBJECT_BUTTON)
 
 if __name__ == "__main__":
     register()
