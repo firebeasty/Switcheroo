@@ -30,10 +30,7 @@ class OBJECT_BUTTON(bpy.types.Operator):
 
 
     def execute(self, context):
-        x = bpy.context.scene.render.resolution_x
-        y = bpy.context.scene.render.resolution_y
-        bpy.context.scene.render.resolution_x = y
-        bpy.context.scene.render.resolution_y = x
+        bpy.context.scene.render.resolution_x, bpy.context.scene.render.resolution_y = bpy.context.scene.render.resolution_y, bpy.context.scene.render.resolution_x
         return {'FINISHED'}
 
 
