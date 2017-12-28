@@ -21,7 +21,7 @@ class Switcheroo(bpy.types.Panel):
 
         #Layout
         row = layout.row()
-        row.operator('switcheroo.switch', icon='FORCE_VORTEX')
+        row.operator('switcheroo.switch', icon='ARROW_LEFTRIGHT')
 
 
 class OBJECT_BUTTON(bpy.types.Operator):
