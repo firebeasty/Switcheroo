@@ -1,18 +1,12 @@
 bl_info = {
     "name": "Switcheroo",
     "category": "Render",
-    "author": "Keith Morgan"
+    "author": "Keith Morgan",
+    "location": "Properties > Render > Dimensions",
+    "description": "Swaps the X/Y render dimensions.",
 }
 
 import bpy
-
-class OBJECT_BUTTON(bpy.types.Operator):
-    bl_idname = "switcheroo.switch"
-    bl_label = "Switch X/Y"
-
-    def execute(self, context):
-        bpy.context.scene.render.resolution_x, bpy.context.scene.render.resolution_y = bpy.context.scene.render.resolution_y, bpy.context.scene.render.resolution_x
-        return {'FINISHED'}
 
 def draw_switcheroo(self, context):
     layout = self.layout
@@ -22,13 +16,21 @@ def draw_switcheroo(self, context):
     row = layout.row()
     row.operator('switcheroo.switch', icon='ARROW_LEFTRIGHT')
 
+class OBJECT_BUTTON(bpy.types.Operator):
+    bl_idname = "switcheroo.switch"
+    bl_label = "Switch X/Y"
+    bl_description = "Flip between portrait and landscape camera orientations"
+
+    def execute(self, context):
+        bpy.context.scene.render.resolution_x, bpy.context.scene.render.resolution_y = bpy.context.scene.render.resolution_y, bpy.context.scene.render.resolution_x
+        return {'FINISHED'}
+
+
 def register():
-    # lets add the menu to the Mesh Display panel via append or prepend
-    bpy.utils.register_class(OBJECT_BUTTON)
     bpy.types.RENDER_PT_dimensions.append(draw_switcheroo)
+    bpy.utils.register_class(OBJECT_BUTTON)
 
 def unregister():
-    # remove the menu
     bpy.utils.unregister_class(OBJECT_BUTTON)
     bpy.types.RENDER_PT_dimensions.remove(draw_switcheroo)
 
