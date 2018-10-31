@@ -6,7 +6,7 @@ bl_info = {
 
 import bpy
 
-class OBJECT_BUTTON(bpy.types.Operator):
+class SWITCHEROO_EXECUTE_BUTTON(bpy.types.Operator):
     bl_idname = "switcheroo.switch"
     bl_label = "Switch X/Y"
 
@@ -24,12 +24,12 @@ def draw_switcheroo(self, context):
 
 def register():
     # lets add the menu to the Mesh Display panel via append or prepend
-    bpy.utils.register_class(OBJECT_BUTTON)
+    bpy.utils.register_class(SWITCHEROO_EXECUTE_BUTTON)
     bpy.types.RENDER_PT_dimensions.append(draw_switcheroo)
 
 def unregister():
     # remove the menu
-    bpy.utils.unregister_class(OBJECT_BUTTON)
+    bpy.utils.unregister_class(SWITCHEROO_EXECUTE_BUTTON)
     bpy.types.RENDER_PT_dimensions.remove(draw_switcheroo)
 
 if __name__ == "__main__":
