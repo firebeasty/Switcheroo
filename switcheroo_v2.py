@@ -16,7 +16,7 @@ def draw_switcheroo(self, context):
     row = layout.row()
     row.operator('switcheroo.switch', icon='ARROW_LEFTRIGHT')
 
-class OBJECT_BUTTON(bpy.types.Operator):
+class SWITCHEROO_EXECUTE_BUTTON(bpy.types.Operator):
     bl_idname = "switcheroo.switch"
     bl_label = "Switch X/Y"
     bl_description = "Flip between portrait and landscape camera orientations"
@@ -28,10 +28,10 @@ class OBJECT_BUTTON(bpy.types.Operator):
 
 def register():
     bpy.types.RENDER_PT_dimensions.append(draw_switcheroo)
-    bpy.utils.register_class(OBJECT_BUTTON)
+    bpy.utils.register_class(SWITCHEROO_EXECUTE_BUTTON)
 
 def unregister():
-    bpy.utils.unregister_class(OBJECT_BUTTON)
+    bpy.utils.unregister_class(SWITCHEROO_EXECUTE_BUTTON)
     bpy.types.RENDER_PT_dimensions.remove(draw_switcheroo)
 
 if __name__ == "__main__":
