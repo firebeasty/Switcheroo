@@ -1,6 +1,8 @@
 bl_info = {
     "name": "Switcheroo",
     "category": "Render",
+    "version": (1, 1, 0),
+    "blender": (2, 79, 1),
     "author": "Keith Morgan",
     "location": "Properties > Render > Dimensions",
     "description": "Swaps the X/Y render dimensions.",
