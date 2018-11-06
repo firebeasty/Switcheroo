@@ -9,14 +9,15 @@ bl_info = {
 }
 
 import bpy
+from bpy.types import Menu, Panel, UIList
 
 #Draw Button
 def draw_switcheroo(self, context):
     layout = self.layout
-    # split = layout.split
 
-    col = layout.column(align=True)
-    col.operator("switcheroo.switch", text="SWITCH XY", icon="ARROW_LEFTRIGHT")
+    row = layout.row()
+    row.alignment = 'RIGHT'
+    row.operator("switcheroo.switch", text="SWITCH XY", icon="ARROW_LEFTRIGHT")
 
 #Switcheroo Script
 class SWITCHEROO_EXECUTE_BUTTON(bpy.types.Operator):
